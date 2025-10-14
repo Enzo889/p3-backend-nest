@@ -1,0 +1,13 @@
+[
+  {
+    "name": "default",
+    "type": "mysql",
+    "host": "ies9021.edu.ar",
+    "port": 3306,
+    "username": "ies9021_userdb",
+    "password": "Xsw23edc.2025",
+    "database": "",
+    "synchronize": false,
+    "entities": ["entities/*.js"]
+  }
+]
