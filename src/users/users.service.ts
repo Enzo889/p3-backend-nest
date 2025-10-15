@@ -11,7 +11,10 @@ export class UsersService {
   ) {}
 
   create(userData: Partial<User>) {
-    const user = this.usersRepository.create(userData);
+    const user = this.usersRepository.create({
+      ...userData,
+      group: userData.group ?? 3,
+    }); // Asignar grupo 3 por defecto si no se proporciona es para "usuarios normales" , 2 para "administradores". 1 es para "superadministradores"
     return this.usersRepository.save(user);
   }
 

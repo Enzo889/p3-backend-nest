@@ -5,6 +5,8 @@ import {
   IsInt,
   MaxLength,
   MinLength,
+  Max,
+  Min,
 } from 'class-validator';
 
 export class CreateUserDto {
@@ -27,9 +29,11 @@ export class CreateUserDto {
   @MinLength(6)
   password: string;
 
-  @IsOptional()
-  @IsInt()
-  group?: number;
+  @IsOptional() // opcional si no siempre se envía el rol en el login
+  @IsInt({ message: 'Group must be an integer value' })
+  @Min(1, { message: 'Group must be at least 1' })
+  @Max(5, { message: 'Group must be at most 5' })
+  group?: number; // 1 = superadmin, 2 = admin, 3 = user.
 
   @IsOptional()
   @IsString()
