@@ -25,7 +25,7 @@ export class AuthController {
   }
 
   @Get('profile')
-  @Auth(ROLES.ADMIN)
+  @Auth(ROLES.USER)
   profile(@Req() request: RequestWithUser) {
     return request.user;
   }
