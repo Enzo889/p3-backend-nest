@@ -58,4 +58,12 @@ export class AuthService {
       name,
     });
   }
+
+  async profile(user: { email: string; group: number }) {
+    const foundUser = await this.usersService.findOneByGmail(user.email);
+    if (!foundUser) {
+      throw new UnauthorizedException('User not found');
+    }
+    return foundUser;
+  }
 }
