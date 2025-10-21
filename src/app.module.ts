@@ -3,6 +3,10 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { CategoryModule } from './category/category.module';
+import { InterestModule } from './interest/interest.module';
+import { PetitionModule } from './petition/petition.module';
+import { PostulationsModule } from './postulations/postulations.module';
+import { NotificationsModule } from './notifications/notifications.module';
 
 @Module({
   imports: [
@@ -19,6 +23,10 @@ import { CategoryModule } from './category/category.module';
     }),
     AuthModule,
     CategoryModule,
+    InterestModule,
+    PetitionModule,
+    PostulationsModule,
+    NotificationsModule,
   ],
   controllers: [],
   providers: [],

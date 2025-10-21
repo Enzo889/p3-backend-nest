@@ -13,7 +13,7 @@ import { Inventory } from './inventory.entity';
 @Index('id_petition', ['idPetition'], {})
 @Entity('postulation', { schema: 'ies9021_coco' })
 export class Postulation {
-  @PrimaryGeneratedColumn({ type: 'int', name: 'idpostulation' })
+  @PrimaryGeneratedColumn({ type: 'int', name: 'id_postulation' })
   idpostulation: number;
 
   @Column('bigint', { name: 'id_petition', nullable: true })
@@ -33,9 +33,6 @@ export class Postulation {
 
   @Column('int', { name: 'id_state', nullable: true, default: () => "'3'" })
   idState: number | null;
-
-  @Column('varchar', { name: 'current', nullable: true, length: 45 })
-  current: string | null;
 
   @Column('bigint', { name: 'id_user_create', nullable: true })
   idUserCreate: string | null;
