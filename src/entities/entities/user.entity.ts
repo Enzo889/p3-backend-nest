@@ -6,6 +6,7 @@ import { PetitionStateHistory } from './petitionstatehistory.entity';
 import { Message } from './message.entity';
 import { NotificationPreference } from './notificationpreference.entity';
 import { NotificationHistory } from './notificationhistory.entity';
+import { UserInterest } from '../../user_interest/entities/user_interest.entity';
 
 @Entity('user', { schema: 'ies9021_coco' })
 export class User {
@@ -108,4 +109,7 @@ export class User {
     (notificationHistory) => notificationHistory.idUser2,
   )
   notificationHistories: NotificationHistory[];
+
+  @OneToMany(() => UserInterest, (userInterest) => userInterest.user)
+  userInterests: UserInterest[];
 }

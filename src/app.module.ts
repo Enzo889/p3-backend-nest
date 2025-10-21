@@ -7,6 +7,7 @@ import { InterestModule } from './interest/interest.module';
 import { PetitionModule } from './petition/petition.module';
 import { PostulationsModule } from './postulations/postulations.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { UserInterestModule } from './user_interest/user_interest.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { NotificationsModule } from './notifications/notifications.module';
     PetitionModule,
     PostulationsModule,
     NotificationsModule,
+    UserInterestModule,
   ],
   controllers: [],
   providers: [],
