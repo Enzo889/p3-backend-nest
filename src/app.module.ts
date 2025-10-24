@@ -8,17 +8,19 @@ import { PetitionModule } from './petition/petition.module';
 import { PostulationsModule } from './postulations/postulations.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { UserInterestModule } from './user_interest/user_interest.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     UsersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'ies9021.edu.ar',
-      port: 3306,
-      username: 'ies9021_userdb',
-      password: 'Xsw23edc.2025',
-      database: 'ies9021_coco',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: false,
     }),
