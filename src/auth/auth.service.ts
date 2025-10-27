@@ -34,10 +34,15 @@ export class AuthService {
       throw new UnauthorizedException('Password is wrong');
     }
 
-    const payload = { email: user.email, group: user.group };
+    const payload = {
+      email: user.email,
+      group: user.group,
+      id: user.idUser,
+      name: user.name,
+    };
     const token = await this.jwtService.signAsync(payload);
 
-    return { token, email, group };
+    return { token, email, group, name: user.name, id: user.idUser };
   }
 
   async register(registerDto: RegisterDto) {
