@@ -9,6 +9,7 @@ import { PostulationsModule } from './postulations/postulations.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { UserInterestModule } from './user_interest/user_interest.module';
 import { ConfigModule } from '@nestjs/config';
+import { ChatModule } from './chat/chat.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { ConfigModule } from '@nestjs/config';
     PostulationsModule,
     NotificationsModule,
     UserInterestModule,
+    ChatModule,
   ],
   controllers: [],
   providers: [],

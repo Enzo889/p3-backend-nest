@@ -18,7 +18,7 @@ export class Message {
   idMessage: number;
 
   @Column('int', { name: 'id_petition' })
-  idPetition: number;
+  idPetition: number | null;
 
   @Column('int', { name: 'id_sender_user' })
   idSenderUser: number;
