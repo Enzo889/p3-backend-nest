@@ -21,7 +21,7 @@ export class AuthService {
       throw new BadRequestException('Request body is missing');
     }
 
-    const { email, password, group } = loginDto;
+    const { email, password } = loginDto;
 
     const user = await this.usersService.findOneByGmail(email);
 
@@ -42,7 +42,13 @@ export class AuthService {
     };
     const token = await this.jwtService.signAsync(payload);
 
-    return { token, email, group, name: user.name, id: user.idUser };
+    return {
+      token,
+      email,
+      group: user.group,
+      name: user.name,
+      id: user.idUser,
+    };
   }
 
   async register(registerDto: RegisterDto) {
