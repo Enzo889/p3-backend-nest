@@ -37,5 +37,11 @@ export class CreatePetitionDto {
 
   @IsNotEmpty()
   @IsInt()
-  idCustomer: number;
+  @IsOptional()
+  idCustomer?: number;
+
+  @IsNotEmpty()
+  @IsInt()
+  @IsOptional()
+  idCategory?: number;
 }

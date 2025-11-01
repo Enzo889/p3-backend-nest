@@ -65,6 +65,9 @@ export class Petition {
   @Column('int', { name: 'id_customer' })
   idCustomer: number;
 
+  @Column('int', { name: 'id_category' })
+  idCategory: number;
+
   @OneToMany(
     () => PetitionMaterial,
     (petitionMaterial) => petitionMaterial.idPetition2,
