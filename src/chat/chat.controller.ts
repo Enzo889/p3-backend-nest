@@ -8,10 +8,12 @@ import {
   HttpCode,
   HttpStatus,
   Logger,
+  Body,
 } from '@nestjs/common';
 import { ChatService } from './chat.service';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { ROLES } from 'src/common/enum/roles.enum';
+import { SendMessageDto } from './dto/send-message.dto';
 
 /**
  * Controlador REST para el chat
@@ -123,5 +125,17 @@ export class ChatController {
       messagesMarked: count,
       message: `${count} mensaje(s) marcado(s) como leído(s)`,
     };
+  }
+
+  @Post('send')
+  @HttpCode(HttpStatus.CREATED)
+  async sendMessage(@Request() req, @Body() dto: SendMessageDto) {
+    const userId = req.user.id;
+
+    this.logger.log(
+      `📨 Usuario ${userId} enviando mensaje a ${dto.receiverId} (${dto.petitionId ? 'petition ' + dto.petitionId : 'sin petition'})`,
+    );
+
+    return this.chatService.sendMessage(userId, dto);
   }
 }
