@@ -22,9 +22,7 @@ export class NotificationsService {
   }
 
   async findAll(): Promise<Notification[]> {
-    return await this.notificationRepository.find({
-      relations: ['idCustomer2', 'notificationHistories'],
-    });
+    return await this.notificationRepository.find();
   }
 
   async findOne(id: number): Promise<Notification> {
