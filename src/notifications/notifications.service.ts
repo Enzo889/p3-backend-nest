@@ -28,7 +28,6 @@ export class NotificationsService {
   async findOne(id: number): Promise<Notification> {
     const notification = await this.notificationRepository.findOne({
       where: { idNotification: id },
-      relations: ['idCustomer2', 'notificationHistories'],
     });
     if (!notification) {
       throw new NotFoundException(`Notification #${id} not found`);
