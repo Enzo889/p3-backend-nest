@@ -34,7 +34,6 @@ export class PetitionService {
   async findOne(id: number): Promise<Petition> {
     const petition = await this.petitionRepository.findOne({
       where: { idPetition: id },
-      relations: ['idState2', 'idTypePetition2'],
     });
 
     if (!petition) {
