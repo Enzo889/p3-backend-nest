@@ -27,4 +27,7 @@ export class CreateAttachmentDto {
   @IsOptional()
   @MaxLength(255)
   path?: string | null; // path
+
+  @IsNumber()
+  idUserCreate: number; // id_user_create
 }
