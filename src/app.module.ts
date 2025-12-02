@@ -10,6 +10,12 @@ import { NotificationsModule } from './notifications/notifications.module';
 import { UserInterestModule } from './user_interest/user_interest.module';
 import { ConfigModule } from '@nestjs/config';
 import { ChatModule } from './chat/chat.module';
+import { ProviderModule } from './provider/provider.module';
+import { ProfessionModule } from './profession/profession.module';
+import { TypeProviderModule } from './type_provider/type_provider.module';
+import { UserProfileModule } from './user_profile/user_profile.module';
+import { PortfolioModule } from './portfolio/portfolio.module';
+import { AttachmentModule } from './attachment/attachment.module';
 
 @Module({
   imports: [
@@ -33,6 +39,12 @@ import { ChatModule } from './chat/chat.module';
     NotificationsModule,
     UserInterestModule,
     ChatModule,
+    ProviderModule,
+    ProfessionModule,
+    TypeProviderModule,
+    UserProfileModule,
+    PortfolioModule,
+    AttachmentModule,
   ],
   controllers: [],
   providers: [],
