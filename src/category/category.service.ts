@@ -2,14 +2,14 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { NCategory } from 'src/entities/entities/ncategory.entity';
 import { Repository } from 'typeorm';
+import { Category } from 'src/entities/entities/category.entity';
 
 @Injectable()
 export class CategoryService {
   constructor(
-    @InjectRepository(NCategory)
-    private categoryRepository: Repository<NCategory>,
+    @InjectRepository(Category)
+    private categoryRepository: Repository<Category>,
   ) {}
 
   async create(createCategoryDto: CreateCategoryDto) {

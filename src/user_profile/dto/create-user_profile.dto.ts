@@ -15,7 +15,7 @@ export class CreateUserProfileDto {
 
   @IsOptional()
   @IsBoolean()
-  isAdmin?: boolean | null;
+  isAdmin?: boolean | null | number;
 
   @IsOptional()
   @IsString()
