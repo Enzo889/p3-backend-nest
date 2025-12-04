@@ -16,6 +16,7 @@ import { TypeProviderModule } from './type_provider/type_provider.module';
 import { UserProfileModule } from './user_profile/user_profile.module';
 import { PortfolioModule } from './portfolio/portfolio.module';
 import { AttachmentModule } from './attachment/attachment.module';
+import { CustomerModule } from './customer/customer.module';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { AttachmentModule } from './attachment/attachment.module';
     UserProfileModule,
     PortfolioModule,
     AttachmentModule,
+    CustomerModule,
   ],
   controllers: [],
   providers: [],

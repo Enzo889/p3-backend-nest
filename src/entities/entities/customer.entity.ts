@@ -17,7 +17,6 @@ import { Notification } from './notification.entity';
 @Index('fk_id_gender_type', ['idGender'], {})
 @Index('fk_id_city', ['idCity'], {})
 @Index('fk_id_user', ['idUser'], {})
-@Index('FKj8dlm21j202cadsbfkoem0s58', ['userId'], {})
 @Entity('customer', { schema: 'ies9021_coco' })
 export class Customer {
   @PrimaryGeneratedColumn({ type: 'int', name: 'id_customer' })
@@ -81,9 +80,6 @@ export class Customer {
   @Column('varchar', { name: 'address', nullable: true, length: 255 })
   address: string | null;
 
-  @Column('int', { name: 'user_id', nullable: true })
-  userId: number | null;
-
   @OneToMany(
     () => CustomerAddress,
     (customerAddress) => customerAddress.idCustomer2,
@@ -92,13 +88,6 @@ export class Customer {
 
   @OneToMany(() => Gender, (gender) => gender.idCustomer2)
   genders: Gender[];
-
-  @ManyToOne(() => User, (user) => user.customers, {
-    onDelete: 'RESTRICT',
-    onUpdate: 'RESTRICT',
-  })
-  @JoinColumn([{ name: 'user_id', referencedColumnName: 'idUser' }])
-  user: User;
 
   @ManyToOne(() => City, (city) => city.customers, {
     onDelete: 'RESTRICT',

@@ -68,9 +68,6 @@ export class User {
   @Column('bigint', { name: 'id_profile', nullable: true })
   idProfile: string | null;
 
-  @OneToMany(() => Customer, (customer) => customer.user)
-  customers: Customer[];
-
   @OneToMany(() => Customer, (customer) => customer.idUser2)
   customers2: Customer[];
 
